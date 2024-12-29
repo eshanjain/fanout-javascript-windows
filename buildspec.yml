@@ -1,5 +1,7 @@
+version: 0.2
+ 
  batch:
-   fast-fail: true
+   fast-fail: false
    build-fanout:
      parallelism: 3
      ignore-failure: false
@@ -23,6 +25,6 @@
            --test-command 'npx jest --runInBand --coverage $CODEBUILD_CURRENT_SHARD_FILES' \
            --files-search "codebuild-glob-search '**/test/**/*.test.js'" \
            --sharding-strategy 'stability'
-     post_build:
+   post_build:
        commands:
          - echo 'Test execution completed'
