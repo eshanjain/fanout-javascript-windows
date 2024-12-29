@@ -1,0 +1,15 @@
+{
+  "name": "calculator-project",
+  "version": "1.0.0",
+  "description": "A simple calculator project with tests",
+  "main": "src/calculator.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": ["calculator", "testing"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^27.0.0"
+  }
+}
