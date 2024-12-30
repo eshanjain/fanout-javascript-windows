@@ -19,11 +19,7 @@ phases:
        - echo $CODEBUILD_TOTAL_SHARDS
        - echo $CODEBUILD_CURRENT_SHARD
        - echo $(codebuild-glob-search '**/test/*.js')
-       - |
-          codebuild-tests-run \
-           --test-command 'npx jest --runInBand --coverage $CODEBUILD_CURRENT_SHARD_FILES' \
-           --files-search "codebuild-glob-search '**/test/**/*.test.js'" \
-           --sharding-strategy 'stability'
+       - codebuild-tests-run --test-command 'npx jest --runInBand --coverage $CODEBUILD_CURRENT_SHARD_FILES' --files-search "codebuild-glob-search '**/test/**/*.test.js'"
    post_build:
        commands:
          - echo 'Test execution completed'
