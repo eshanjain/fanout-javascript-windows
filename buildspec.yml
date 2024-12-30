@@ -1,12 +1,12 @@
 version: 0.2
  
- batch:
+batch:
    fast-fail: false
    build-fanout:
      parallelism: 3
      ignore-failure: false
  
- phases:
+phases:
    install:
      commands:
        - echo 'Install dependencies'
