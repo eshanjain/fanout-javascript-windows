@@ -20,7 +20,10 @@ phases:
        - echo $CODEBUILD_CURRENT_SHARD
        - echo $(codebuild-glob-search '**/tests/*.js')
        - npx jest tests/add.test.js tests/divide.test.js --runInBand --coverage 
-       - codebuild-tests-run --test-command 'echo $env:CODEBUILD_CURRENT_SHARD_FILES' --files-search "codebuild-glob-search '**/tests/*.test.js'"
+       - codebuild-tests-run --test-command 'npx jest $env:CODEBUILD_CURRENT_SHARD_FILES' --files-search "codebuild-glob-search '**/tests/*.test.js'"
+       - codebuild-tests-run --test-command 'npx jest --runInBand --coverage $env:CODEBUILD_CURRENT_SHARD_FILES' --files-search "codebuild-glob-search '**/tests/*.test.js'"
+       - codebuild-tests-run --test-command 'npx jest $env:CODEBUILD_CURRENT_SHARD_FILES --runInBand --coverage' --files-search "codebuild-glob-search '**/tests/*.test.js'"
+
    post_build:
        commands:
          - echo 'Test execution completed'
