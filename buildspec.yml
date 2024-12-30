@@ -16,7 +16,7 @@ phases:
    build:
      commands:
        - echo 'Running JavaScript Tests'
-       - codebuild-tests-run --test-command "npx jest @($env:CODEBUILD_CURRENT_SHARD_FILES -split ' ') --runInBand --coverage" --files-search "codebuild-glob-search '**/tests/*.test.js'"
+       - codebuild-tests-run --test-command 'npx jest @($env:CODEBUILD_CURRENT_SHARD_FILES -split " ") --runInBand --coverage' --files-search "codebuild-glob-search '**/tests/*.test.js'"
 
    post_build:
        commands:
