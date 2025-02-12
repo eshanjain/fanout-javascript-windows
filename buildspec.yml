@@ -22,11 +22,11 @@ phases:
        commands:
          - echo 'Test execution completed'
 reports:
-  windows-case-t:
+  windows-case-t-1:
     files:
       - "**/*"
     file-format: JunitXml
-  windows-case-cc:
+  windows-case-cc-1:
     files:
       - "**/*"
     file-format: CLOVERXML
