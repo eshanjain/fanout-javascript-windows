@@ -21,3 +21,18 @@ phases:
    post_build:
        commands:
          - echo 'Test execution completed'
+reports:
+  windows-case-t:
+    files:
+      - "**/*"
+    file-format: JunitXml
+  windows-case-cc:
+    files:
+      - "**/*"
+    file-format: CLOVERXML
+    
+artifacts:
+  files:
+    - 'test-reports/**/*'
+    - 'coverage/**/*'
+  name: build-reports-$(date +%Y-%m-%d)
